@@ -1,0 +1,158 @@
+<!Doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Cars RESTApi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="#">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>A simple Car RESTApi by Grzegorz Zygan</h1>
+        <p>Whole project was made with Django and Django Rest Framework</p>
+        <h2>Endpoints for API are:</h2>
+        <h3>POST /cars</h3>
+        <p>
+            Request body should contain car make and model name
+            Based on this data, its existence should be checked here https://vpic.nhtsa.dot.gov/api/
+            If the car doesn't exist - return an error
+            If the car exists - it should be saved in the database
+            POST /cars/
+
+            Content-Type: application/json;charset=UTF-8
+
+            {
+
+            "make" : "Volkswagen",
+
+            "model" : "Golf",
+
+            }
+        </p>
+
+        <h3>DELETE /cars/{ id }</h3>
+        <p>
+            Should delete the car with the given id from database
+            If the car doesn't exist in database - return an error
+            DELETE /cars/{ id }/
+        </p>
+        <h3>
+            POST /rate</h3>
+        <p>
+            * Add a rate for a car from 1 to 5
+
+            POST /rate/
+
+            Content-Type: application/json;charset=UTF-8
+
+            {
+
+            "car_id" : 1,
+
+            "rating" : 5,
+
+            }
+        </p>
+        <h3>
+            GET /cars</h3>
+        <p>
+            Should fetch a list of all cars already present in application database with their current average rate
+            GET /cars/
+
+            Content-Type: application/json;charset=UTF-8
+
+            Response:
+
+            [
+
+            {
+
+            "id" : 1,
+
+            "make" : "Volkswagen",
+
+            "model" : "Golf",
+
+            "avg_rating" : 5.0,
+
+            },
+
+            {
+
+            "id" : 2,
+
+            "make" : "Volkswagen",
+
+            "model" : "Passat",
+
+            "avg_rating" : 4.7,
+
+            }
+
+            ]
+        </p>
+        <h3>
+            GET /popular</h3>
+        <p>
+            Should return top cars already present in the database ranking based on a number of rates (not average rate
+            values, it's important!)
+            GET /popular/
+
+            Content-Type: application/json;charset=UTF-8
+
+            Response:
+
+            [
+
+            {
+
+            "id" : 1,
+
+            "make" : "Volkswagen",
+
+            "model" : "Golf",
+
+            "rates_number" : 100,
+
+            },
+
+            {
+
+            "id" : 2,
+
+            "make" : "Volkswagen",
+
+            "model" : "Passat",
+
+            "rates_number" : 31,
+
+            }
+
+            ]</p>
+    </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+</body>
+
+</html>
