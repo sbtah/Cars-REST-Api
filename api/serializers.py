@@ -16,7 +16,7 @@ class CarSerializer(serializers.ModelSerializer):
         Check that Car exists in API.
         """
         API_URL = f"https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/{data['make'].upper()}?format=json"
-        SEARCH_FOR_MODEL = data['model'].capitalize()
+        SEARCH_FOR_MODEL = data['model'].title()
         
         r = requests.get(API_URL)
         models = r.json()
