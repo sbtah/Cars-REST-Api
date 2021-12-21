@@ -1,4 +1,7 @@
 # This is a simple RESTApi that I have build as a part of a recruitment test.
+
+# https://cars-restapi-gz.herokuapp.com/
+
 # ENDPOINTS:
 
 POST /cars
@@ -27,7 +30,7 @@ DELETE /cars/{ id }/
 
 POST /rate
 
-* Add a rate for a car from 1 to 5
+-   Add a rate for a car from 1 to 5
 
 POST /rate/
 
